@@ -61,8 +61,8 @@
 
         <!-- Email -->
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="email" value="{{ __('Email') }}" />
-            <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
+            <x-jet-label for="email" value="{{ __('School Email') }}" />
+            <x-jet-input id="email" type="email" title="All should be in small letter because it is case sensitive" class="mt-1 block w-full" wire:model.defer="state.email" />
             <x-jet-input-error for="email" class="mt-2" />
 
             @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && ! $this->user->hasVerifiedEmail())
@@ -80,6 +80,27 @@
                     </p>
                 @endif
             @endif
+        </div>
+
+        <!-- Matric -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="matric" value="{{ __('matriculation Number') }}" />
+            <x-jet-input id="matric" type="text" class="mt-1 block w-full" wire:model.defer="state.matric" autocomplete="matric" />
+            <x-jet-input-error for="matric" class="mt-2" />
+        </div>
+ 
+        <!-- Phone Number -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="phone_number" value="{{ __('Phone Number') }}" />
+            <x-jet-input id="phone_number" type="text" class="mt-1 block w-full" wire:model.defer="state.phone_number" autocomplete="phone_number" />
+            <x-jet-input-error for="phone_number" class="mt-2" />
+        </div>
+
+        <!-- Course -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="course" value="{{ __('Course') }}" />
+            <x-jet-input id="course" type="text" class="mt-1 block w-full" wire:model.defer="state.course" autocomplete="course" />
+            <x-jet-input-error for="course" class="mt-2" />
         </div>
     </x-slot>
 

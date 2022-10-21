@@ -11,22 +11,27 @@
 
             <div>
                 <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-jet-input id="name" class="block mt-1 w-full" type="text" placeholder="Enter Your Full Name" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                <x-jet-label for="email" value="{{ __('School Email') }}" />
+                <x-jet-input id="email" class="block mt-1 w-full" type="email" placeholder=" Email i.e abcd1234@babcock.edu.ng" title="All should be in small letter because it is case sensitive" pattern="\b[A-Za-z0-9._%+-]+@babcock.edu.ng\b" name="email" :value="old('email')" required />
             </div>
+            {{-- <div class="mt-4">
+                <x-jet-label for="matric" value="{{ __('Matric Number') }}" />
+                <x-jet-input id="matric" class="block mt-1 w-full" type="text" placeholder="Enter your matriculation Number" title=""  name="matric" :value="old('matric')" required />
+            </div> --}}
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                <x-jet-input id="password" class="block mt-1 w-full" type="password" placeholder=" Enter A Strong Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" name="password" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" placeholder=" Enter The Strong Password You Created Again" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())

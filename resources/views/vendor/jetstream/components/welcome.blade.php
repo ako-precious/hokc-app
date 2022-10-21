@@ -1,90 +1,551 @@
-<div class="p-6 sm:px-20 bg-white border-b border-gray-200">
-    <div>
-        <x-jet-application-logo class="block h-12 w-auto" />
-    </div>
+<div id="root" class="relative bg-blueGray-50">
+    {{$Page = ''}}
+    @include('layouts.admin.sidebar')
+    <div class="relative md:ml-64 bg-blueGray-50">
+      
+      <!-- Header -->
 
-    <div class="mt-8 text-2xl">
-        Welcome to your Jetstream application!
-    </div>
 
-    <div class="mt-6 text-gray-500">
-        Laravel Jetstream provides a beautiful, robust starting point for your next Laravel application. Laravel is designed
-        to help you build your application using a development environment that is simple, powerful, and enjoyable. We believe
-        you should love expressing your creativity through programming, so we have spent time carefully crafting the Laravel
-        ecosystem to be a breath of fresh air. We hope you love it.
-    </div>
-</div>
-
-<div class="bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-2">
-    <div class="p-6">
-        <div class="flex items-center">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-400"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-            <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold"><a href="https://laravel.com/docs">Documentation</a></div>
+      <div class="relative bg-pink-600 md:pt-32 pb-32 pt-12">
+        <div class="px-4 md:px-10 mx-auto w-full">
+          <div>
+            <!-- Card stats -->
+            {{-- @include('layouts.admin.cardstats') --}}
+          </div>
         </div>
-
-        <div class="ml-12">
-            <div class="mt-2 text-sm text-gray-500">
-                Laravel has wonderful documentation covering every aspect of the framework. Whether you're new to the framework or have previous experience, we recommend reading all of the documentation from beginning to end.
-            </div>
-
-            <a href="https://laravel.com/docs">
-                <div class="mt-3 flex items-center text-sm font-semibold text-indigo-700">
-                        <div>Explore the documentation</div>
-
-                        <div class="ml-1 text-indigo-500">
-                            <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                        </div>
+      </div>
+      <div class="px-4 md:px-10 mx-auto w-full -m-24">
+        <div class="flex flex-wrap">
+          <div class="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
+            <div class="relative flex flex-col min-w-0 break-words w-full mb-6 downside shadow-lg rounded bg-blueGray-700">
+              <div class="rounded-t mb-0 px-4 py-3 bg-transparent">
+                <div class="flex flex-wrap items-center">
+                  <div class="relative w-full max-w-full flex-grow flex-1">
+                    <h6 class="uppercase text-blueGray-100 mb-1 text-xs font-semibold">
+                      Overview
+                    </h6>
+                    <h2 class="text-white text-xl font-semibold">
+                      Sales value
+                    </h2>
+                  </div>
                 </div>
-            </a>
-        </div>
-    </div>
-
-    <div class="p-6 border-t border-gray-200 md:border-t-0 md:border-l">
-        <div class="flex items-center">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-400"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-            <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold"><a href="https://laracasts.com">Laracasts</a></div>
-        </div>
-
-        <div class="ml-12">
-            <div class="mt-2 text-sm text-gray-500">
-                Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-            </div>
-
-            <a href="https://laracasts.com">
-                <div class="mt-3 flex items-center text-sm font-semibold text-indigo-700">
-                        <div>Start watching Laracasts</div>
-
-                        <div class="ml-1 text-indigo-500">
-                            <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                        </div>
+              </div>
+              <div class="p-4 flex-auto">
+                <!-- Chart -->
+                <div class="relative h-350-px">
+                  <canvas style="height: 350px" id="line-chart"></canvas>
                 </div>
-            </a>
-        </div>
-    </div>
-
-    <div class="p-6 border-t border-gray-200">
-        <div class="flex items-center">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-400"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-            <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold"><a href="https://tailwindcss.com/">Tailwind</a></div>
-        </div>
-
-        <div class="ml-12">
-            <div class="mt-2 text-sm text-gray-500">
-                Laravel Jetstream is built with Tailwind, an amazing utility first CSS framework that doesn't get in your way. You'll be amazed how easily you can build and maintain fresh, modern designs with this wonderful framework at your fingertips.
+              </div>
             </div>
-        </div>
-    </div>
-
-    <div class="p-6 border-t border-gray-200 md:border-l">
-        <div class="flex items-center">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-400"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-            <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold">Authentication</div>
-        </div>
-
-        <div class="ml-12">
-            <div class="mt-2 text-sm text-gray-500">
-                Authentication and registration views are included with Laravel Jetstream, as well as support for user email verification and resetting forgotten passwords. So, you're free to get started what matters most: building your application.
+          </div>
+          <div class="w-full xl:w-4/12 px-4">
+            <div class="relative flex flex-col min-w-0 break-words downside bg-white w-full mb-6 shadow-lg rounded">
+              <div class="rounded-t mb-0 px-4 py-3 bg-transparent">
+                <div class="flex flex-wrap items-center">
+                  <div class="relative w-full max-w-full flex-grow flex-1">
+                    <h6 class="uppercase text-blueGray-400 mb-1 text-xs font-semibold">
+                      Costomers
+                    </h6>
+                    <h2 class="text-blueGray-700 text-xl font-semibold">
+                      Top customers Bookings
+                    </h2>
+                  </div>
+                </div>
+              </div>
+              <div class="p-4 flex-auto">
+                <!-- Chart -->
+                <div class="relative h-350-px">
+                  <canvas style="height:350px" id="bar-chart"></canvas>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+        <div class="flex flex-wrap mt-4">
+          <div class="w-full xl:w-8/12 mb-12 xl:mb-0 px-4 ">
+            <div class="relative flex flex-col min-w-0 break-words downside bg-white w-full mb-6 shadow-lg rounded">
+
+              <div class="rounded-t mb-0 px-4 bg-pink-900 py-3 bg-transparent">
+                <div class="flex flex-wrap items-center">
+                  <div class="relative w-full max-w-full flex-grow flex-1">
+                    <h6 class="uppercase text-blueGray-100 mb-1 text-xs font-semibold">
+                      Performance
+                    </h6>
+                    <h2 class="text-white  text-xl font-semibold">
+                      Room Booked Charts
+                    </h2>
+                  </div>
+                </div>
+              </div>
+              <div class="p-4 flex-auto">
+                <!-- Chart -->
+                <div class="relative h-350-px">
+                  <canvas style="height: 600px" id="donut"></canvas>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="w-full xl:w-4/12 px-4">
+            <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+              <div class="rounded-t mb-0 px-4 py-3 border-0">
+                <div class="flex flex-wrap items-center">
+                  <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+                    <h3 class="font-semibold text-base text-blueGray-700">
+                      Social traffic
+                    </h3>
+                  </div>
+                  <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
+                    <button
+                      class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                      type="button">
+                      See all
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="block w-full overflow-x-auto">
+                <!-- Projects table -->
+                <table class="items-center w-full bg-transparent border-collapse">
+                  <thead class="thead-light">
+                    <tr>
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                        Referral
+                      </th>
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                        Visitors
+                      </th>
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                        Facebook
+                      </th>
+                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        1,480
+                      </td>
+                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        <div class="flex items-center">
+                          <span class="mr-2">60%</span>
+                          <div class="relative w-full">
+                            <div class="overflow-hidden h-2 text-xs flex rounded bg-red-200">
+                              <div style="width: 60%"
+                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                        Facebook
+                      </th>
+                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        5,480
+                      </td>
+                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        <div class="flex items-center">
+                          <span class="mr-2">70%</span>
+                          <div class="relative w-full">
+                            <div class="overflow-hidden h-2 text-xs flex rounded bg-emerald-200">
+                              <div style="width: 70%"
+                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-emerald-500">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                        Google
+                      </th>
+                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        4,807
+                      </td>
+                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        <div class="flex items-center">
+                          <span class="mr-2">80%</span>
+                          <div class="relative w-full">
+                            <div class="overflow-hidden h-2 text-xs flex rounded bg-purple-200">
+                              <div style="width: 80%"
+                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-purple-500">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                        Instagram
+                      </th>
+                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        3,678
+                      </td>
+                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        <div class="flex items-center">
+                          <span class="mr-2">75%</span>
+                          <div class="relative w-full">
+                            <div class="overflow-hidden h-2 text-xs flex rounded bg-lightBlue-200">
+                              <div style="width: 75%"
+                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-lightBlue-500">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                        twitter
+                      </th>
+                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        2,645
+                      </td>
+                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        <div class="flex items-center">
+                          <span class="mr-2">30%</span>
+                          <div class="relative w-full">
+                            <div class="overflow-hidden h-2 text-xs flex rounded bg-orange-200">
+                              <div style="width: 30%"
+                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-emerald-500">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        @include('layouts.footer')
+      </div>
     </div>
-</div>
+
+    <script>
+      window.addEventListener("scroll", function () {
+             let header = document.querySelector("sidebar");
+             header.classList.toggle("md:top-8", window.scrollY > 52)
+         })
+ </script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" charset="utf-8"></script>
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+    <script type="text/javascript" defer>
+      /* Make dynamic date appear */
+        var _labels= {!! json_encode($bookingslabels)  !!};
+        var _data= {!!  json_encode($bookingsdata)  !!};
+          var _rlabels= {!! json_encode($roomslabels)  !!};
+        var _rdata= {!!  json_encode($roomsdata)  !!};
+          var _userslabels= {!! json_encode($costomerslabels)  !!};
+        var _usersdata= {!!  json_encode($costomersdata)  !!};
+       
+          (function () {
+            if (document.getElementById("get-current-year")) {
+              document.getElementById(
+                "get-current-year"
+              ).innerHTML = new Date().getFullYear();
+            }
+          })();
+          /* Sidebar - Side navigation menu on mobile/responsive mode */
+          function toggleNavbar(collapseID) {
+            document.getElementById(collapseID).classList.toggle("hidden");
+            document.getElementById(collapseID).classList.toggle("bg-white");
+            document.getElementById(collapseID).classList.toggle("m-2");
+            document.getElementById(collapseID).classList.toggle("py-3");
+            document.getElementById(collapseID).classList.toggle("px-6");
+          }
+         
+    
+          (function () {
+            /* Chart initialisations */
+            /* Line Chart */
+            var config = {
+              type: "line",
+              data: {
+                labels:_labels,
+                datasets: [
+                  {
+                    label: "Number of Room Booked",
+                    backgroundColor: "#4c51bf",
+                    borderColor: "#4c51bf",
+                    data: _data,
+                    fill: false,
+                  },
+                //   {
+                //     label: new Date().getFullYear() - 1,
+                //     fill: false,
+                //     backgroundColor: "#fff",
+                //     borderColor: "#fff",
+                //     data: [40, 68, 86, 74, 56, 60, 87],
+                //   },
+                ],
+              },
+              options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                title: {
+                  display: false,
+                  text: "Sales Charts",
+                  fontColor: "white",
+                },
+                legend: {
+                  labels: {
+                    fontColor: "white",
+                  },
+                  align: "end",
+                  position: "bottom",
+                },
+                tooltips: {
+                  mode: "index",
+                  intersect: false,
+                },
+                hover: {
+                  mode: "nearest",
+                  intersect: true,
+                },
+                scales: {
+                  xAxes: [
+                    {
+                      ticks: {
+                        fontColor: "rgba(255,255,255,.7)",
+                      },
+                      display: true,
+                      scaleLabel: {
+                        display: false,
+                        labelString: "Month",
+                        fontColor: "white",
+                      },
+                      gridLines: {
+                        display: false,
+                        borderDash: [2],
+                        borderDashOffset: [2],
+                        color: "rgba(33, 37, 41, 0.3)",
+                        zeroLineColor: "rgba(0, 0, 0, 0)",
+                        zeroLineBorderDash: [2],
+                        zeroLineBorderDashOffset: [2],
+                      },
+                    },
+                  ],
+                  yAxes: [
+                    {
+                      ticks: {
+                        fontColor: "rgba(255,255,255,.7)",
+                      },
+                      display: true,
+                      scaleLabel: {
+                        display: false,
+                        labelString: "Value",
+                        fontColor: "white",
+                      },
+                      gridLines: {
+                        borderDash: [3],
+                        borderDashOffset: [3],
+                        drawBorder: false,
+                        color: "rgba(255, 255, 255, 0.15)",
+                        zeroLineColor: "rgba(33, 37, 41, 0)",
+                        zeroLineBorderDash: [2],
+                        zeroLineBorderDashOffset: [2],
+                      },
+                    },
+                  ],
+                },
+              },
+            };
+
+            var ctx = document.getElementById("line-chart").getContext("2d");
+            window.myLine = new Chart(ctx, config);
+    
+            /* Bar Chart */
+            config = {
+              type: "bar",
+              data: {
+                labels: _userslabels,
+                datasets: [
+                  {
+                    label: "Costomers booking ",
+                    backgroundColor: "#ed64a6",
+                    borderColor: "#ed64a6",
+                    data: _usersdata,
+                    fill: false,
+                    barThickness: 12,
+                  },
+                ],
+              },
+              options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                title: {
+                  display: false,
+                  text: "Orders Chart",
+                },
+                tooltips: {
+                  mode: "index",
+                  intersect: false,
+                },
+                hover: {
+                  mode: "nearest",
+                  intersect: true,
+                },
+                legend: {
+                  labels: {
+                    fontColor: "rgba(0,0,0,.4)",
+                  },
+                  align: "end",
+                  position: "bottom",
+                },
+                scales: {
+                  xAxes: [
+                    {
+                      display: false,
+                      scaleLabel: {
+                        display: true,
+                        labelString: "Month",
+                      },
+                      gridLines: {
+                        borderDash: [2],
+                        borderDashOffset: [2],
+                        color: "rgba(33, 37, 41, 0.3)",
+                        zeroLineColor: "rgba(33, 37, 41, 0.3)",
+                        zeroLineBorderDash: [2],
+                        zeroLineBorderDashOffset: [2],
+                      },
+                    },
+                  ],
+                  yAxes: [
+                    {
+                      display: true,
+                      scaleLabel: {
+                        display: false,
+                        labelString: "Value",
+                      },
+                      gridLines: {
+                        borderDash: [2],
+                        drawBorder: false,
+                        borderDashOffset: [2],
+                        color: "rgba(33, 37, 41, 0.2)",
+                        zeroLineColor: "rgba(33, 37, 41, 0.15)",
+                        zeroLineBorderDash: [2],
+                        zeroLineBorderDashOffset: [2],
+                      },
+                    },
+                  ],
+                },
+              },
+            };
+            ctx = document.getElementById("bar-chart").getContext("2d");
+            window.myBar = new Chart(ctx, config);
+          })();
+
+          const ctx = document.getElementById('donut').getContext('2d');
+            const myChart = new Chart(ctx, {
+            // const config = {
+              type: 'doughnut',
+              data:{
+              labels:  _rlabels,
+              datasets: [{
+                label: 'Rooms Booked',
+                data:  _rdata,
+                backgroundColor: [
+                  'rgb(255, 99, 132)',
+                  'rgb(54, 162, 235)',
+                  'rgb(255, 205, 86)',
+                  'rgb(255, 0, 0)',
+                  'rgb(0, 0, 255)',
+                  'rgb(12, 255, 0)',
+                  'rgb(0, 255, 225)',
+
+                ],
+                hoverOffset: 4
+              }],
+               options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                title: {
+                  display: false,
+                  text: "Room Booked Charts",
+                  fontColor: "white",
+                },
+                legend: {
+                  labels: {
+                    fontColor: "white",
+                  },
+                  align: "end",
+                  position: "bottom",
+                },
+                tooltips: {
+                  mode: "index",
+                  intersect: false,
+                },
+                hover: {
+                  mode: "nearest",
+                  intersect: true,
+                },
+                scales: {
+                  xAxes: [
+                    {
+                      ticks: {
+                        fontColor: "rgba(255,255,255,.7)",
+                      },
+                      display: true,
+                      scaleLabel: {
+                        display: false,
+                        labelString: "Month",
+                        fontColor: "white",
+                      },
+                      gridLines: {
+                        display: false,
+                        borderDash: [2],
+                        borderDashOffset: [2],
+                        color: "rgba(33, 37, 41, 0.3)",
+                        zeroLineColor: "rgba(0, 0, 0, 0)",
+                        zeroLineBorderDash: [2],
+                        zeroLineBorderDashOffset: [2],
+                      },
+                    },
+                  ],
+                  yAxes: [
+                    {
+                      ticks: {
+                        fontColor: "rgba(255,255,255,.7)",
+                      },
+                      display: true,
+                      scaleLabel: {
+                        display: false,
+                        labelString: "Value",
+                        fontColor: "white",
+                      },
+                      gridLines: {
+                        borderDash: [3],
+                        borderDashOffset: [3],
+                        drawBorder: false,
+                        color: "rgba(255, 255, 255, 0.15)",
+                        zeroLineColor: "rgba(33, 37, 41, 0)",
+                        zeroLineBorderDash: [2],
+                        zeroLineBorderDashOffset: [2],
+                      },
+                    },
+                  ],
+                },
+              },
+            }
+            });
+          
+
+    </script> --}}
+  </div>
