@@ -84,7 +84,7 @@
 
         <!-- Matric -->
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="matric" value="{{ __('matriculation Number') }}" />
+            <x-jet-label for="matric" value="{{ __('Matriculation Number') }}" />
             <x-jet-input id="matric" type="text" class="mt-1 block w-full" wire:model.defer="state.matric" autocomplete="matric" />
             <x-jet-input-error for="matric" class="mt-2" />
         </div>
@@ -100,6 +100,13 @@
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="course" value="{{ __('Course') }}" />
             <x-jet-input id="course" type="text" class="mt-1 block w-full" wire:model.defer="state.course" autocomplete="course" />
+            <x-jet-input-error for="course" class="mt-2" />
+        </div>
+
+        <!-- Level -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="level" value="{{ __('Level') }}" />
+            <x-jet-input id="level" type="text" class="mt-1 block w-full" wire:model.defer="state.level" autocomplete="level" />
             <x-jet-input-error for="course" class="mt-2" />
         </div>
     </x-slot>

@@ -24,6 +24,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'matric' => ['required', 'string', 'max:55', 'unique:users,matric'],
             'phone_number' => ['required', 'string', 'max:25'],
             'course' => ['required', 'string', 'max:255'],
+            'level' => ['required', 'string', 'max:125'],
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
         ])->validateWithBag('updateProfileInformation');
 
@@ -38,6 +39,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user->forceFill([
                 'name' => $input['name'],
                 'email' => $input['email'],
+                'level' => $input['level'],
                 'matric' => $input['matric'],
                 'course' => $input['course'],
                 'phone_number' => $input['phone_number'],
@@ -57,6 +59,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         $user->forceFill([
             'name' => $input['name'],
             'email' => $input['email'],
+            'level' => $input['level'],
             'matric' => $input['matric'],
             'course' => $input['course'],
             'phone_number' => $input['phone_number'],

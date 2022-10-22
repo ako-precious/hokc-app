@@ -17,10 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('matric')->unique();
+            $table->string('matric')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('course')->nullable();
+            $table->string('level')->nullable();
+            $table->string('role')->default('student');
             $table->string('phone_number')->nullable();
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
