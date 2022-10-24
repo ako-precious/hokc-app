@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('set_attendances', function (Blueprint $table) {
             $table->id();
-            $table->string('name');            
+            $table->string('name');    
+            $table->foreignId('user_id');        
             $table->timestamp('starts')->nullable();
             $table->timestamp('stops')->nullable();
             $table->timestamps();

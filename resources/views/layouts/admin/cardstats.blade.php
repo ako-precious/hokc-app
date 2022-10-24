@@ -1,4 +1,4 @@
-<div class="flex flex-wrap">
+<div class="flex justify-around flex-wrap">
     <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
         <div
             class="relative rightside flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
@@ -9,7 +9,7 @@
                             Rooms
                         </h5>
                         <span class="font-semibold text-xl text-blueGray-700">
-                            {{ $roomnum }}
+                            {{-- {{ $roomnum }} --}} 700
                         </span>
                     </div>
                     <div class="relative w-auto pl-4 flex-initial">
@@ -40,7 +40,7 @@
                            Costomers
                         </h5>
                         <span class="font-semibold text-xl text-blueGray-700">
-                            {{ $costomernum }}
+                            {{-- {{ $costomernum }}  --}} 500
                         </span>
                     </div>
                     <div class="relative w-auto pl-4 flex-initial">
@@ -69,7 +69,7 @@
                             Room Booked
                         </h5>
                         <span class="font-semibold text-xl text-blueGray-700">
-                            {{ $roombookingnumber }}
+                            {{-- {{ $roombookingnumber }} --}} 90
                         </span>
                     </div>
                     <div class="relative w-auto pl-4 flex-initial">
@@ -103,7 +103,7 @@
                     </div>
                     <div class="relative w-auto pl-4 flex-initial">
                         <div
-                            class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-lightBlue-500">
+                            class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-blue-500">
                             <i class="fas fa-percent"></i>
                         </div>
                     </div>

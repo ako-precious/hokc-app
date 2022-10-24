@@ -11,7 +11,8 @@ class SetAttendance extends Model
     
     protected $fillable = [
         'name',
-        'starts',
         'stops',
+        'starts',
+        'user_id',
     ];
 }

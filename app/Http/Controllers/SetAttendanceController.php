@@ -13,14 +13,14 @@ class SetAttendanceController extends Controller
         // $role = Auth::User()->roles;
         // if ($role == 'admin'){
            
-            $students = SetAttendance::all();
+            $set_attendances = SetAttendance::all();
             // $roomnum = Room::all()->count();
             // $costomernum = CostomerInfo::all()->count();
             // $roombookingnumber = RoomBooking::all()->count();
             
-            return $students;
-            return view('students.index',   
-                 ['students'=> $students,
+            // return $set_attendances;
+            return view('set_attendances.index',   
+                 ['set_attendances'=> $set_attendances,
                 // 'roomnum'=> $roomnum,
                 // 'costomernum'=> $costomernum,
                 // 'roombookingnumber'=> $roombookingnumber

@@ -10,7 +10,7 @@
         <div class="px-4 md:px-10 mx-auto w-full">
           <div>
             <!-- Card stats -->
-            {{-- @include('layouts.admin.cardstats') --}}
+            @include('layouts.admin.cardstats')
           </div>
         </div>
       </div>

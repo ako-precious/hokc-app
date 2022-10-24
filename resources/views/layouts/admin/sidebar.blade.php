@@ -92,18 +92,18 @@
                
 
                 <li class="items-center leftside">
-                    <a href=""
-                        class="text-xs uppercase py-3 font-bold block @if($Page == 'rooom') text-pink-500 hover:text-pink-600 @else text-blueGray-700 hover:text-blueGray-500 @endif ">
+                    <a href="{{route('set_attendances.index')}}"
+                        class="text-xs uppercase py-3 font-bold block @if($Page == 'set attendance') text-pink-500 hover:text-pink-600 @else text-blueGray-700 hover:text-blueGray-500 @endif ">
                         <i class="fas fa-bed mr-2 text-sm text-blueGray-300"></i>
-                        accomodations
+                        Set Attendance
                     </a>
                 </li>
 
                 <hr class="my-2 md:min-w-full" />
 
                 <li class="items-center leftside">
-                    <a href=" "
-                        class="text-xs uppercase py-3 font-bold block @if($Page == 'costomer') text-pink-500 hover:text-pink-600 @else text-blueGray-700 hover:text-blueGray-500 @endif ">
+                    <a href="{{route('students.index')}}"
+                        class="text-xs uppercase py-3 font-bold block @if($Page == 'student') text-pink-500 hover:text-pink-600 @else text-blueGray-700 hover:text-blueGray-500 @endif ">
                         <i class="fas fa-users mr-2 text-sm text-blueGray-300"></i>
                         Students
                     </a>
@@ -112,10 +112,10 @@
                 <hr class="my-2 md:min-w-full" />
 
                 <li class="items-center leftside">
-                    <a href=" "
-                        class="text-xs uppercase py-3 font-bold block  @if($Page == 'booking') text-pink-500 hover:text-pink-600 @else text-blueGray-700 hover:text-blueGray-500 @endif ">
+                    <a href="{{route('attendances.index')}}"
+                        class="text-xs uppercase py-3 font-bold block  @if($Page == 'attendance') text-pink-500 hover:text-pink-600 @else text-blueGray-700 hover:text-blueGray-500 @endif ">
                         <i class="fas fa-key mr-2 text-sm text-blueGray-300"></i>
-                        Bookings
+                        Attendance
                     </a>
                 </li>
             </ul>

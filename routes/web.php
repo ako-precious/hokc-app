@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\SetAttendanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +32,5 @@ Route::middleware([
 });
 
 Route::resource('students', UserController::class);
+Route::resource('attendances', AttendanceController::class);
+Route::resource('set_attendances', SetAttendanceController::class);
