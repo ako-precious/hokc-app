@@ -3,21 +3,18 @@ $Page = 'set attendance';
 @endphp
 <x-app-layout>
 
-    {{-- </x-set-attendance-index> --}}
+    {{-- <x-set-attendance-index/> --}}
+
     <div id="root">
         @include('layouts.admin.sidebar')
     
         <div class="relative md:ml-64 bg-blueGray-50">
     
                        <!-- Header -->
-            <div class="relative bg-pink-600 md:pt-32 pb-32 pt-12">
-                <div class="px-4 md:px-10 mx-auto w-full">
-                    <div>
+            
                         <!-- Card stats -->
                         @include('layouts.admin.cardstats')
-                    </div>
-                </div>
-            </div>
+                  
             <div class="px-4 md:px-10 mx-auto w-full -m-24">
                 <div class="flex flex-wrap mt-4">
                     <div class="w-full mb-12 px-4">
@@ -42,94 +39,12 @@ $Page = 'set attendance';
                             <div class="block w-full overflow-x-auto">
                                 <!-- Projects table -->
                                 <table class="items-center downside w-full bg-transparent border-collapse">
-                                    <thead>
-                                        <tr>
-                                            <th
-                                                class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
-                                                ID
-                                            </th>
-                                            <th
-                                                class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
-                                                Name
-                                            </th>
-                                            <th
-                                                class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
-                                                Created By
-                                            </th>
-                                            <th
-                                                class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
-                                               Time Starts
-                                            </th>
-                                            <th
-                                                class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
-                                                Time Stops
-                                            </th>
-                                           
-                                            <th
-                                                class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
-                                               Create At
-                                            </th>
-                                            <th
-                                                class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
-                                            </th>
-                                        </tr>
-                                    </thead>
+                                        
+                                        <x-set_attendance.table-header />
                                     <tbody>
                                         @foreach ($set_attendances as $set_attendance)
-                                        <tr>
-                                            <th
-                                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                                                <span class="ml-3 font-bold text-blueGray-600">
-                                                    {{ $set_attendance->id }}
-                                                </span>
-                                            </th>
-                                            <td
-                                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                {{ $set_attendance->name }}
-    
-                                            </td>
-                                            <td
-                                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                {{ $set_attendance->name }}
-    
-                                            </td>
-                                            <td
-                                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                {{ $set_attendance->starts }}
-    
-                                            </td>
-                                            <td
-                                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                               
-                                                {{ $set_attendance->stops}} 
-                                            </td>
-                                           
-                                            <td
-                                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                {{ $set_attendance->created_at }}
-                                            </td>
-                                            <td
-                                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-                                                <div class="flex items-center justify-center">
-                                                    <a href="set_attendances/{{$set_attendance->id}}/edit"
-                                                        class="text-sm py-2 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blue-900 ">
-    
-                                                        <i class="fas fa-edit mr-2 text-sm "></i>
-                                                    </a>
-                                                    <form class='pull-right' action="set_attendances/{{ $set_attendance->id }}"
-                                                        method="POST">
-                                                        @method('DELETE')
-                                                        @csrf
-    
-                                                        <button name="delete-post" type="submit"
-                                                            class="text-sm py-2 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-red-900">
-                                                            <i class="fas fa-trash mr-2 text-sm "></i>
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            
-                                            </td>
-                                        </tr>
+                                       
+                                        <x-set_attendance.index :set_attedance="$set_attendance" />
                                         @endforeach
                                     </tbody>
                                 </table>

@@ -1,4 +1,7 @@
-<div class="flex justify-around flex-wrap">
+<div class="relative bg-blue-700 md:pt-32 pb-32 pt-12">
+    <div class="px-4 md:px-10 mx-auto w-full">
+      <div>
+        <!-- Card stats --><div class="flex justify-around flex-wrap">
     <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
         <div
             class="relative rightside flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
@@ -120,3 +123,7 @@
         </div>
     </div>
 </div>
+        {{-- @include('layouts.admin.cardstats') --}}
+      </div>
+    </div>
+  </div>

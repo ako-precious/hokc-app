@@ -93,7 +93,7 @@
 
                 <li class="items-center leftside">
                     <a href="{{route('set_attendances.index')}}"
-                        class="text-xs uppercase py-3 font-bold block @if($Page == 'set attendance') text-pink-500 hover:text-pink-600 @else text-blueGray-700 hover:text-blueGray-500 @endif ">
+                        class="text-xs uppercase py-3 font-bold block @if($Page == 'set attendance') text-blue-700 hover:text-blue-800 @else text-blueGray-700 hover:text-blueGray-500 @endif ">
                         <i class="fas fa-bed mr-2 text-sm text-blueGray-300"></i>
                         Set Attendance
                     </a>
@@ -103,7 +103,7 @@
 
                 <li class="items-center leftside">
                     <a href="{{route('students.index')}}"
-                        class="text-xs uppercase py-3 font-bold block @if($Page == 'student') text-pink-500 hover:text-pink-600 @else text-blueGray-700 hover:text-blueGray-500 @endif ">
+                        class="text-xs uppercase py-3 font-bold block @if($Page == 'student') text-blue-700 hover:text-blue-800 @else text-blueGray-700 hover:text-blueGray-500 @endif ">
                         <i class="fas fa-users mr-2 text-sm text-blueGray-300"></i>
                         Students
                     </a>
@@ -113,7 +113,7 @@
 
                 <li class="items-center leftside">
                     <a href="{{route('attendances.index')}}"
-                        class="text-xs uppercase py-3 font-bold block  @if($Page == 'attendance') text-pink-500 hover:text-pink-600 @else text-blueGray-700 hover:text-blueGray-500 @endif ">
+                        class="text-xs uppercase py-3 font-bold block  @if($Page == 'attendance') text-blue-700 hover:text-blue-800 @else text-blueGray-700 hover:text-blueGray-500 @endif ">
                         <i class="fas fa-key mr-2 text-sm text-blueGray-300"></i>
                         Attendance
                     </a>

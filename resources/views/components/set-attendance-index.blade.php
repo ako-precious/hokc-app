@@ -140,7 +140,7 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     /* Make dynamic date appear */
       (function () {
         if (document.getElementById("get-current-year")) {
@@ -169,4 +169,4 @@
         document.getElementById(dropdownID).classList.toggle("hidden");
         document.getElementById(dropdownID).classList.toggle("block");
       }
-</script>
+</script> --}}

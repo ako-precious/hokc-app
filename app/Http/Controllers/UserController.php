@@ -11,7 +11,8 @@ class UserController extends Controller
 {
     public function index()
     {
-        // $role = Auth::user()->roles;
+        if (Auth::user()){
+        // $role = ->roles;
         // if ($role == 'admin'){
            
             $students = User::all();
@@ -33,6 +34,10 @@ class UserController extends Controller
         //     return redirect('home');
     
         // }
+        }else{
+            return redirect('dashboard');
+    
+        }
     }
    
     // public function create()
