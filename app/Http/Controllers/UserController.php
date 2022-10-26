@@ -20,7 +20,7 @@ class UserController extends Controller
             // $costomernum = CostomerInfo::all()->count();
             // $roombookingnumber = RoomBooking::all()->count();
             
-            return $students;
+            // return $students;
             return view('students.index',   
                  ['students'=> $students,
                 // 'roomnum'=> $roomnum,

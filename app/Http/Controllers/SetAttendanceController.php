@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use QRcode;
+
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\SetAttendance;
@@ -48,9 +49,8 @@ class SetAttendanceController extends Controller
             // if ($role == 'admin') {
 
 
-                // return view('set_attendances.create',);
-                    $attendancepage =   'http://localhost/attendance-system/courses/editcourse/';
-                    QRcode::png($attendancepage);
+                
+                // QrCode::generate('Make me into a QrCode!');
                 return view('set_attendances.create',);
             // } else {
             //     return redirect('home');
@@ -65,39 +65,25 @@ class SetAttendanceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'email' => 'required|unique:set_attendanceinfo',
-    //         'meansofid' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    //         'signature' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    public function store(Request $request)
+    {
+        $name = Auth::User()->name;
+        $id = Auth::User()->id;
+         $request->validate([
+               
+             'name' => ['required', 'string', 'max:255', 'unique:set_attendances,name'],
+             'starts' => ['required', 'max:255'],
+             'stops' => ['required', 'max:255'],
 
-    //     ]);
+         ]);
+         $set_attendance =$request->all();
+         $set_attendance['username'] = $name;
+         $set_attendance['user_id'] = $id;
+        // return $set_attendance;
+        SetAttendance::create($set_attendance);
+        return redirect('set_attendances')->withSuccess('Attendance Successfully created!');
 
-    //     $Costomer = $request->all();
-
-    //     $meansofidpath= $request->meansofid->store('images/meansofid');
-    //     $Costomer['meansofid'] = $meansofidpath;
-    //     $signaturepath= $request->signature->store('images/signature');
-    //     $Costomer['signature'] = $signaturepath;
-
-
-    //     CostomerInfo::create($Costomer);
-
-    //     $role = Auth::User()->roles;
-    //     if ($role == 'admin'){
-    //         return redirect('set_attendance')->withSuccess('Added Successfully!');
-
-    //     }else{
-    //         return redirect('home')->withSuccess('Added Successfully!');
-
-    //     }
-
-
-
-
-
-    // }
+    }
 
     /**
      * Display the specified resource.

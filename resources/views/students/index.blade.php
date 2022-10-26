@@ -1,5 +1,5 @@
 @php
-$Page = 'set attendance';
+$Page = 'student';
 @endphp
 <x-app-layout>
 
@@ -29,7 +29,7 @@ $Page = 'set attendance';
                                     </div>
                                     <div class="relative px-8 create">
                                         <a class="font-bold text-2xl flex align-center justify-center flex-col text-blueGray-700"
-                                            title="Set A New Attendance" href="{{ route('set_attendances.create') }}">+
+                                            title="Set A New Attendance" href="{{ route('students.create') }}">+
     
                                         </a>
                                     </div>
@@ -40,11 +40,11 @@ $Page = 'set attendance';
                                 <!-- Projects table -->
                                 <table class="items-center downside w-full bg-transparent border-collapse">
                                         
-                                        <x-set_attendance.table-header />
+                                        <x-students.index.table_header />
                                     <tbody>
-                                        @foreach ($set_attendances as $set_attendance)
+                                        @foreach ($students as $student)
                                        
-                                        <x-set_attendance.index :set_attendance=" $set_attendance" />
+                                        <x-students.index.table :student="$student" />
                                         @endforeach
                                     </tbody>
                                 </table>

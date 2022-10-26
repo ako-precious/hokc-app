@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Attendance;
 class AttendanceController extends Controller
@@ -9,6 +11,7 @@ class AttendanceController extends Controller
     //
     public function index()
     {
+        if (Auth::User()){
         // $role = Auth::User()->roles;
         // if ($role == 'admin'){
            
@@ -18,7 +21,7 @@ class AttendanceController extends Controller
             // $roombookingnumber = RoomBooking::all()->count();
             
             // return $students;
-            return view('students.index',   
+            return view('a.index',   
                  ['students'=> $students,
                 // 'roomnum'=> $roomnum,
                 // 'costomernum'=> $costomernum,
@@ -31,6 +34,11 @@ class AttendanceController extends Controller
         //     return redirect('home');
     
         // }
+            
+        }else{
+            return redirect('dashboard');
+    
+        }
     }
    
     // public function create()

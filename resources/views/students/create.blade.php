@@ -2,57 +2,43 @@
 $Page = 'set attendance';
 @endphp
 <x-app-layout>
-
-    {{-- <x-set-attendance-index/> --}}
+    
 
     <div id="root">
         @include('layouts.admin.sidebar')
-    
-        <div class="relative md:ml-64 bg-blueGray-50">
-    
-                       <!-- Header -->
-            
-                        <!-- Card stats -->
-                        @include('layouts.admin.cardstats')
-                  
+
+        <div class="relative md:ml-64 bg-blueGray-500">
+
+           
+            <!-- Header -->
+            <div class="relative bg-blue-700 md:pt-32 pb-32 pt-12">
+                <div class="px-4 md:px-10 mx-auto w-full">
+                    
+                </div>
+            </div>
             <div class="px-4 md:px-10 mx-auto w-full -m-24">
+
                 <div class="flex flex-wrap mt-4">
                     <div class="w-full mb-12 px-4">
-                        <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white">
-    
-                            <div class="rounded-t mb-0 px-4 downside py-3 border-0">
-                                <div class="flex flex-wrap items-center justify-around">
-                                    <div class="relative w-full px-4 max-w-full flex-grow flex-1">
-                                        <h3 class="font-semibold uppercase text-lg text-blueGray-700">
-                                            ALL SET attendances
+                        <div class="relative flex downside flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white">
+                            <div class="rounded-t mb-0 px-4 py-3 border-0">
+                                <div class="flex flex-wrap items-center">
+                                    <div class="relative w-full p-4 max-w-full flex-grow flex-1">
+                                        <h3 class="font-semibold capitalize text-lg text-blueGray-700">
+                                            set attendance
                                         </h3>
                                     </div>
-                                    <div class="relative px-8 create">
-                                        <a class="font-bold text-2xl flex align-center justify-center flex-col text-blueGray-700"
-                                            title="Set A New Attendance" href="{{ route('set_attendances.create') }}">+
-    
-                                        </a>
-                                    </div>
                                 </div>
+                                <hr>
                             </div>
-                            @include('layouts.admin.alert')
-                            <div class="block w-full overflow-x-auto">
-                                <!-- Projects table -->
-                                <table class="items-center downside w-full bg-transparent border-collapse">
-                                        
-                                        <x-set_attendance.table-header />
-                                    <tbody>
-                                        @foreach ($set_attendances as $set_attendance)
-                                       
-                                        <x-set_attendance.index :set_attendance=" $set_attendance" />
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                            <div class="block w-full">
+                               
+                                  <x-set_attendance.create-form/>
                             </div>
                         </div>
                     </div>
-    
                 </div>
+
                 @include('layouts.footer')
             </div>
         </div>
