@@ -11,12 +11,14 @@ class index extends Component
      *
      * @return void
      */
-    public $set_attendance;
+    Public $setattendance;
 
 
-    public function __construct($set_attendance)
+    public function __construct($setattendance)
     {
-        $this->set_attendance = $set_attendance;
+        $this->setattendance = $setattendance;
+        
+
     }
 
     /**

@@ -42,9 +42,9 @@ $Page = 'set attendance';
                                         
                                         <x-set_attendance.table-header />
                                     <tbody>
-                                        @foreach ($set_attendances as $set_attendance)
-                                       
-                                        <x-set_attendance.index :set_attendance=" $set_attendance" />
+                                        @foreach ($set_attendances as $setattendance)
+                                       {{-- {{$set_attendance->name}} --}}
+                                        <x-set_attendance.index :setattendance="$setattendance" />
                                         @endforeach
                                     </tbody>
                                 </table>

@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
 use App\Models\SetAttendance;
+use Illuminate\Http\Request;
+use App\Models\User;
 
 class SetAttendanceController extends Controller
 {
@@ -17,11 +18,13 @@ class SetAttendanceController extends Controller
             // if ($role == 'admin'){
 
             $set_attendances = SetAttendance::all();
+            // $student = User::find($set_attendances["user_id"]); 
             // $roomnum = Room::all()->count();
             // $costomernum = CostomerInfo::all()->count();
             // $roombookingnumber = RoomBooking::all()->count();
 
-            // return $set_attendances;
+            // return $set_attendances."br". $set_attendances['id'];
+            // return $set_attendances ."br". $student;
             return view(
                 'set_attendances.index',
                 [
@@ -85,7 +88,7 @@ class SetAttendanceController extends Controller
 
     }
 
-    /**
+    /** 
      * Display the specified resource.
      *
      * @param  int  $id

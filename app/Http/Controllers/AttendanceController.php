@@ -4,97 +4,110 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Support\Facades\Auth;
+use App\Models\SetAttendance;
 use Illuminate\Http\Request;
 use App\Models\Attendance;
+
 class AttendanceController extends Controller
 {
     //
     public function index()
     {
-        if (Auth::User()){
-        // $role = Auth::User()->roles;
-        // if ($role == 'admin'){
-           
-            $students = Attendance::all();
+        if (Auth::User()) {
+            // $role = Auth::User()->roles;
+            // if ($role == 'admin'){
+
+            $attendances = Attendance::all();
             // $roomnum = Room::all()->count();
             // $costomernum = CostomerInfo::all()->count();
             // $roombookingnumber = RoomBooking::all()->count();
-            
-            // return $students;
-            return view('a.index',   
-                 ['students'=> $students,
+
+            // return $attendances;
+            return view(
+                'attendances.index',
+                [
+                    'attendances' => $attendances,
+                    // 'roomnum'=> $roomnum,
+                    // 'costomernum'=> $costomernum,
+                    // 'roombookingnumber'=> $roombookingnumber
+                ]
+            );
+            // }else{
+            //     return redirect('home');
+            // }
+
+        } else {
+            return redirect('dashboard');
+        }
+    }
+
+    public function create()
+    {
+        if (Auth::User()) {
+            $role = Auth::User()->roles;
+            // if ($role == 'admin'){ 
+
+            $set_attendances = SetAttendance::all();
+            return view('attendances.create',
+            [  'set_attendances' => $set_attendances,
                 // 'roomnum'=> $roomnum,
                 // 'costomernum'=> $costomernum,
                 // 'roombookingnumber'=> $roombookingnumber
-                ]
+            ]);
+            
+            // }else{
+                //     return redirect('home');
                 
-            ); 
-            
-        // }else{
-        //     return redirect('home');
-    
-        // }
-            
-        }else{
-            return redirect('dashboard');
-    
+                // }
+            } else {
+                return redirect('dashboard');
+            }
         }
+        /**
+         * Store a newly created resource in storage.
+         *
+         * @param  \Illuminate\Http\Request  $request
+         * @return \Illuminate\Http\Response
+         */
+        public function store(Request $request)
+        {
+            
+            $set_attendance = 1;
+            $user_id = Auth::User()->id;
+            $attendance_time = date("Y-m-d H:i:s ");
+            $get_set_attendance = SetAttendance::find($set_attendance);
+            
+            if ($get_set_attendance->starts < $attendance_time &&  $get_set_attendance->stops > $attendance_time) {
+                $status = 'Present';
+            } else if ($get_set_attendance->stops < $attendance_time) {
+                $status = 'late';
+                # code...
+            } else {
+                $status = 'Try Dey Calm Down Boss time never reach';
+                # code...
+            }
+            $attendance['set_attendance_id'] = $set_attendance;
+            $attendance['user_id'] = $user_id;
+            $attendance['status'] = $status;
+            Attendance::create($attendance);
+            // dd($attendance);
+            // return $attendance."<br> Successfully registered ";
+            return redirect('attendances')->withSuccess('Attendance Successfully created!');
+            
+        //     
+
+        //     CostomerInfo::create($Costomer);
+
+        //     $role = Auth::User()->roles;
+        //     if ($role == 'admin'){
+        //         return redirect('costomers')->withSuccess('Added Successfully!');
+
+        //     }else{
+        //         return redirect('home')->withSuccess('Added Successfully!');
+
+        //     }
+
     }
-   
-    // public function create()
-    // {
-    //     $role = Auth::User()->roles;
-    //     if ($role == 'admin'){
-           
-    
-    //         return view('costomers.create',);
-            
-    //     }else{
-    //         return redirect('home');
-    
-    //     }
-     
-       
-    // }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'email' => 'required|unique:costomersinfo',
-    //         'meansofid' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    //         'signature' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            
-    //     ]);
-        
-    //     $Costomer = $request->all();
-        
-    //     $meansofidpath= $request->meansofid->store('images/meansofid');
-    //     $Costomer['meansofid'] = $meansofidpath;
-    //     $signaturepath= $request->signature->store('images/signature');
-    //     $Costomer['signature'] = $signaturepath;
-
-    
-    //     CostomerInfo::create($Costomer);
-
-    //     $role = Auth::User()->roles;
-    //     if ($role == 'admin'){
-    //         return redirect('costomers')->withSuccess('Added Successfully!');
-            
-    //     }else{
-    //         return redirect('home')->withSuccess('Added Successfully!');
-    
-    //     }
-        
-   
-    
-        
-        
-    // }
 
     /**
      * Display the specified resource.
@@ -106,16 +119,16 @@ class AttendanceController extends Controller
     {
         // $role = Auth::User()->roles;
         // if ($role == 'admin'){
-           
-    
-            return Attendance::find($id);
-            
+
+
+        return Attendance::find($id);
+
         // }else{
         //     return redirect('home');
-    
+
         // }
     }
-     /**
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -125,15 +138,15 @@ class AttendanceController extends Controller
     // {
     //     $role = Auth::User()->roles;
     //     if ($role == 'admin'){
-           
-    
+
+
     //         $costomer= CostomerInfo::find($id);
     //        // dd($Costomer);
     //         return view('costomers.edit')->with('costomer', $costomer); 
-            
+
     //     }else{
     //         return redirect('home');
-    
+
     //     }
     // }
 
@@ -154,7 +167,7 @@ class AttendanceController extends Controller
     //     return redirect('costomers')->withSuccess('Updated Successfully!');
     //     }else{
     //         return redirect('home')->withSuccess('Updated Successfully!');
-    
+
     //     }
     // }
 
@@ -176,10 +189,10 @@ class AttendanceController extends Controller
     //         Storage::delete($iddestination);
     //         Storage::delete($signdestination);
     //     }
-        
+
     //     $Costomer->delete();
-        
-        
+
+
     //     return redirect('costomers')->withSuccess('Deleted Successfully!');
 
     // }

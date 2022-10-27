@@ -98,7 +98,7 @@
 
         <!-- Course -->
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="course" value="{{ __('Course') }}" />
+            <x-jet-label for="course" value="{{ __('Course Of Study') }}" />
             <x-jet-input id="course" type="text" class="mt-1 block w-full" wire:model.defer="state.course" autocomplete="course" />
             <x-jet-input-error for="course" class="mt-2" />
         </div>

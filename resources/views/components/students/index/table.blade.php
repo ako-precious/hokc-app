@@ -2,7 +2,7 @@
     <!-- Waste no more time arguing what a good man should be, be one. - Marcus Aurelius -->
     <tr>
         <th
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left ">
             <span class="ml-3 font-bold text-blueGray-600">
                 {{ $student->id }}
             </span>
