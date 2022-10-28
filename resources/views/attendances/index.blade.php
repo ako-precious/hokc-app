@@ -44,7 +44,7 @@ $Page = 'set attendance';
                                     <tbody>
                                         @foreach ($attendances as $attendance)
                                        {{-- {{$set_attendance->name}} --}}
-                                        {{-- <x-attendance.index :attendance="$attendance" /> --}}
+                                        <x-attendances.index.table :attendance="$attendance" />
                                         @endforeach
                                     </tbody>
                                 </table>

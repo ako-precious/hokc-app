@@ -18,6 +18,9 @@ class SetAttendanceController extends Controller
             // if ($role == 'admin'){
 
             $set_attendances = SetAttendance::all();
+            $user = User::with('set_attendance') ;
+            $set_attendance = SetAttendance::with('User')->get() ;
+            //   return $set_attendance;
             // $student = User::find($set_attendances["user_id"]); 
             // $roomnum = Room::all()->count();
             // $costomernum = CostomerInfo::all()->count();
@@ -83,6 +86,7 @@ class SetAttendanceController extends Controller
          $set_attendance['username'] = $name;
          $set_attendance['user_id'] = $id;
         // return $set_attendance;
+        
         SetAttendance::create($set_attendance);
         return redirect('set_attendances')->withSuccess('Attendance Successfully created!');
 

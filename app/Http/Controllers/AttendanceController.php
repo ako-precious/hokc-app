@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\SetAttendance;
 use Illuminate\Http\Request;
 use App\Models\Attendance;
+use App\Models\User;
 
 class AttendanceController extends Controller
 {
@@ -21,8 +22,13 @@ class AttendanceController extends Controller
             // $roomnum = Room::all()->count();
             // $costomernum = CostomerInfo::all()->count();
             // $roombookingnumber = RoomBooking::all()->count();
-
-            // return $attendances;
+            // // dd(Attendance::find(1)->Users()->orderBy('name')->get());
+            //  $attendance = Attendance::find(1);
+            //  foreach ($attendance->SetAttendances as $user) {
+            //     dd($user);
+            // }
+            // dd(Attendance::with('Users')->get());
+            // dd($attendances);
             return view(
                 'attendances.index',
                 [
@@ -48,52 +54,71 @@ class AttendanceController extends Controller
             // if ($role == 'admin'){ 
 
             $set_attendances = SetAttendance::all();
-            return view('attendances.create',
-            [  'set_attendances' => $set_attendances,
-                // 'roomnum'=> $roomnum,
-                // 'costomernum'=> $costomernum,
-                // 'roombookingnumber'=> $roombookingnumber
-            ]);
-            
+            $students = User::all();
+            return view(
+                'attendances.create',
+                [
+                    'set_attendances' => $set_attendances,
+                    'students' => $students,
+                ]
+            );
+
             // }else{
-                //     return redirect('home');
-                
-                // }
-            } else {
-                return redirect('dashboard');
-            }
+            //     return redirect('home');
+
+            // }
+        } else {
+            return redirect('dashboard');
         }
-        /**
-         * Store a newly created resource in storage.
-         *
-         * @param  \Illuminate\Http\Request  $request
-         * @return \Illuminate\Http\Response
-         */
-        public function store(Request $request)
-        {
-            
-            $set_attendance = 1;
-            $user_id = Auth::User()->id;
-            $attendance_time = date("Y-m-d H:i:s ");
-            $get_set_attendance = SetAttendance::find($set_attendance);
-            
-            if ($get_set_attendance->starts < $attendance_time &&  $get_set_attendance->stops > $attendance_time) {
-                $status = 'Present';
-            } else if ($get_set_attendance->stops < $attendance_time) {
-                $status = 'late';
+    }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+
+        // $set_attendance = 1;
+        // $user_id = Auth::User()->id;
+        // $attendance_time = date("Y-m-d H:i:s ");
+        // $get_set_attendance = SetAttendance::find($set_attendance);
+
+        // if ($get_set_attendance->starts < $attendance_time &&  $get_set_attendance->stops > $attendance_time) {
+        //     $status = 'Present';
+        // } else if ($get_set_attendance->stops < $attendance_time) {
+        //     $status = 'Late';
+        //     # code...
+        // } else {
+        //     $status = 'Try Dey Calm Down Boss time never reach';
+        //     # code...
+        // }
+        // $attendance['set_attendance_id'] = $set_attendance;
+        // $attendance['user_id'] = $user_id;
+        // $attendance['status'] = $status;
+        // Attendance::create($attendance);
+        // dd($attendance);
+        // return $attendance."<br> Successfully registered ";
+
+        $request->validate([
+               
+            'set_attendance_id' => ['required', 'max:255'],
+            'user_id' => ['required', 'max:255'],
+            'status' => ['required', 'max:255'],
+
+        ]);
+        $attendance =$request->all();
+         if (Attendance::where('set_attendance_id', $attendance['set_attendance_id'])->
+            where('user_id', $attendance['user_id'])->count() > 0) {
                 # code...
-            } else {
-                $status = 'Try Dey Calm Down Boss time never reach';
-                # code...
-            }
-            $attendance['set_attendance_id'] = $set_attendance;
-            $attendance['user_id'] = $user_id;
-            $attendance['status'] = $status;
-            Attendance::create($attendance);
-            // dd($attendance);
-            // return $attendance."<br> Successfully registered ";
-            return redirect('attendances')->withSuccess('Attendance Successfully created!');
-            
+                return redirect('attendances')->withSuccess('Attendance Already Successfully Done!');
+         } else{
+
+             Attendance::create($attendance);
+             return redirect('attendances')->withSuccess('Attendance Successfully Done!');
+         }
+
         //     
 
         //     CostomerInfo::create($Costomer);
