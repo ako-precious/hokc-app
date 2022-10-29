@@ -24,7 +24,7 @@
                                       Overview
                                     </h6>
                                     <h2 class="text-white text-xl font-semibold">
-                                      Sales value
+                                      Attendance value
                                     </h2>
                                   </div>
                                 </div>
@@ -43,10 +43,10 @@
                                 <div class="flex flex-wrap items-center">
                                   <div class="relative w-full max-w-full flex-grow flex-1">
                                     <h6 class="uppercase text-blueGray-400 mb-1 text-xs font-semibold">
-                                      Costomers
+                                      Students
                                     </h6>
                                     <h2 class="text-blueGray-700 text-xl font-semibold">
-                                      Top customers Bookings
+                                      Top Student Attendance
                                     </h2>
                                   </div>
                                 </div>

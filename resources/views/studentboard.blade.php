@@ -2,7 +2,7 @@
    
     <div class="bg-white pb-32 overflow-hidden shadow-xl sm:rounded-lg">
         <div id="root" class="relative bg-blueGray-50">
-            {{$Page = ''}}
+           
             @include('layouts.student.sidebar')
             <div class="relative md:ml-64 bg-blueGray-50">
               

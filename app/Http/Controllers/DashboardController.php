@@ -68,11 +68,11 @@ class DashboardController extends Controller
             // }
             // ksort($roomsdata);
 
-            // $costomerratios = RoomBooking::selectRaw('count(id) as total_bookings, email as user')
-            //     ->groupBy('user')
-            //     ->orderByDesc('user')
-            //     ->take(8)
-            //     ->get();
+            $costomerratios = Attendance::selectRaw('count(id) as total_bookings, email as user')
+                ->groupBy('user')
+                ->orderByDesc('user')
+                ->take(8)
+                ->get();
 
 
             // foreach ($costomerratios as $costomerratio) {

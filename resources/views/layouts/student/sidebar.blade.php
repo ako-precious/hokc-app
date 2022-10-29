@@ -1,5 +1,5 @@
 <nav
-    class="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6">
+    class="sidebar md:left-0 md:top-16 md:block md:fixed md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6">
     <div
         class="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto">
         <button
@@ -7,12 +7,13 @@
             type="button" onclick="toggleNavbar('example-collapse-sidebar')">
             <i class="fas fa-bars"></i>
         </button>
-        <a class="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
-            href="/">
-             Heritage Of The <br> Kingdom Church
+        <hr class="my-4 md:min-w-full" />
+        <a class="md:block leftside text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-lg uppercase font-bold p-4 px-0"
+        href="/">
+            Heritage Of The <br> Kingdom Church
         </a>
-        <ul class="md:hidden items-center flex flex-wrap list-none">
-            <li class="inline-block relative">
+        <ul class="md:hidden  items-center flex flex-wrap list-none">
+            <li class="inline-block leftside relative">
                 <a class="text-blueGray-500 block py-1 px-3" href="#pablo"
                     onclick="openDropdown(event,'notification-dropdown')"><i class="fas fa-bell"></i></a>
                 <div class="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
@@ -30,7 +31,7 @@
                         link</a>
                 </div>
             </li>
-            <li class="inline-block relative">
+            <li class="inline-block leftside relative">
                 <a class="text-blueGray-500 block" href="#pablo"
                     onclick="openDropdown(event,'user-responsive-dropdown')">
                     <div class="items-center flex">
@@ -61,8 +62,11 @@
             <div class="md:min-w-full md:hidden block pb-4 mb-4 border-b border-solid border-blueGray-200">
                 <div class="flex flex-wrap">
                     <div class="w-6/12">
+                        <hr class="my-4 md:min-w-full" />
                         <a class="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
-                            href="/">  Heritage Of The <br> Kingdom Church </a>
+                            href="/">Heritage Of The <br> Kingdom Church
+                        
+                        </a>
                     </div>
                     <div class=" w-6/12 flex justify-end">
                         <button type="button"
@@ -76,7 +80,7 @@
             <form class="mt-6 mb-4 md:hidden">
                 <div class="mb-3 pt-0">
                     <input type="text" placeholder="Search"
-                        class="px-3 py-2 h-12 border border-solid border-blueGray-500 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base leading-snug shadow-none outline-none focus:outline-none w-full font-normal" />
+                        class="border-0 px-3 py-2 h-12 border border-solid border-blueGray-500 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base leading-snug shadow-none outline-none focus:outline-none w-full font-normal" />
                 </div>
             </form>
             <!-- Divider -->
@@ -85,33 +89,27 @@
 
             <ul class="md:flex-col md:min-w-full flex flex-col list-none">
                
-
-                <hr class="my-4 md:min-w-full" />
-
-                <li class="items-center leftside">
-                    <a href="{{ route('attendances.index') }}"
-                        class="text-xs uppercase py-3 font-bold block @if($Page == 'costomer') text-pink-500 hover:text-pink-600 @else text-blueGray-700 hover:text-blueGray-500 @endif ">
-                        <i class="fas fa-user-circle text-blueGray-300 mr-2 text-sm"></i>
-                       Update Your  Details</a>
-                </li>
-
-                <hr class="my-2 md:min-w-full" />
+                <hr class="my-2 md:min-w-full" /> 
 
                 <li class="items-center leftside">
-                    {{-- <a href="{{ route('book') }}" --}}
-                    <a href=""
-                        class="text-xs uppercase py-3 font-bold block  @if($Page == 'booking') text-pink-500 hover:text-pink-600 @else text-blueGray-700 hover:text-blueGray-500 @endif ">
-                        <i class="fas fa-key mr-2 text-sm text-blueGray-300"></i>
-                        Bookings
+                    <a href="{{route('attendances.student')}}"
+                        class="text-xs uppercase py-3 font-bold block @if($Page == 'attendance') text-blue-700 hover:text-blue-800 @else text-blueGray-700 hover:text-blueGray-500 @endif ">
+                        <i class="fas fa-users mr-2 text-sm text-blueGray-300"></i>
+                        My Attendance
                     </a>
-                </li>
+                </li> 
+
+                 <hr class="my-2 md:min-w-full" />
+
                 
             </ul>
-
-
-            <!-- Divider -->
-            <hr class="my-4 md:min-w-full" />
-            
+        
         </div>
     </div>
 </nav>
+<script>
+     window.addEventListener("scroll", function () {
+            let header = document.querySelector(".sidebar");
+            header.classList.toggle("md:top-0", window.scrollY > 52)
+        })
+</script>

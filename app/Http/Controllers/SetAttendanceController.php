@@ -88,7 +88,7 @@ class SetAttendanceController extends Controller
         SetAttendance::create($set_attendance);
         $id =  SetAttendance::latest()->first()->id;
         // return SetAttendance::latest()->first();
-        return redirect()->route('qr_code.id', [$id]);
+        return redirect()->route('qr_code.create.id', [$id]);
         // return redirect('set_attendances')->withSuccess('Attendance Successfully created!');
 
     }
