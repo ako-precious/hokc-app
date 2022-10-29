@@ -5,9 +5,9 @@
 
 
     <div id="root">
-        @include('layouts.admin.sidebar')
+        {{-- @include('layouts.admin.sidebar') --}}
 
-        <div class="relative md:ml-64 bg-blueGray-500">
+        <div class="relative  bg-blueGray-500">
 
 
             <!-- Header -->
@@ -34,29 +34,25 @@
                             </div>
                             <div class="block w-full">
 
-                                {{-- <div class=" flex flex-col justify-center items-center text-center">
+                                <div class=" flex flex-col justify-center items-center text-center">
                                     <div class="visible-print py-6">
                                         {!! QrCode::eye('circle')->style('round')->gradient(255, 0, 0,0, 0, 255,"radial")->color (255, 0, 0)->format('svg')->size(300)->generate(Request::url()) !!}
                                     </div>
                                     <div>
 
-                                        <p class=" py-8">Scan me to Sign your attendance.</p>
+                                        <p class=" text-blue-800 py-8">Scan me to Sign your attendance. {{$id}} {{ route('qr_code.store', ['id'=>$id]) }}</p>
                                     </div>
-                                    OrCode:: (400)
-                                    ->generate('https://www.simplesoftware.io/#/docs/ simple-arcode'); 11)                                   14
-
-                                    <p>Scan me to return to the original page.</p>
-                                </div> --}}
-                                <form enctype="multipart/form-data" class='px-6 py-8'
+                                </div>
+                                {{-- <form enctype="multipart/form-data" class='px-6 py-8'
                                     action="{{ route('attendances.store') }}" method="POST">
                                     @csrf
                                     <div class="relative z-0 w-full mb-6 group">
                                         <select name="set_attendance_id"
-                                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-500 dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                             id="setattendance">
                                             @foreach ($set_attendances as $setattendance)
                                                 <option
-                                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-500 dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                                     value="{{ $setattendance->id }}">{{ $setattendance->id }}
                                                     {{ $setattendance->name }}</option>
                                             @endforeach
@@ -68,11 +64,11 @@
                                     </div>
                                     <div class="relative z-0 w-full mb-6 group">
                                         <select name="user_id"
-                                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-500 dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                             id="student">
                                             @foreach ($students as $student)
                                                 <option
-                                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-500 dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                                     value="{{ $student->id }}">{{ $student->id }}
                                                     {{ $student->name }}</option>
                                             @endforeach
@@ -83,14 +79,14 @@
                                     </div>
                                     <div class="relative z-0 w-full mb-6 group">
                                         <select name="status"
-                                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-500 dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                             id="status">
 
                                             <option
-                                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-500 dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                                 value="Present">Present</option>
                                             <option
-                                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-500 dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                                 value="Late">Late</option>
 
                                         </select>
@@ -101,7 +97,7 @@
                                     <button type="submit"
                                         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
 
-                                </form>
+                                </form> --}}
                             </div>
                         </div>
                     </div>

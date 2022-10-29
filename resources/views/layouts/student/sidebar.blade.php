@@ -9,7 +9,7 @@
         </button>
         <a class="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
             href="/">
-            Shiloh Apartmennt
+             Heritage Of The <br> Kingdom Church
         </a>
         <ul class="md:hidden items-center flex flex-wrap list-none">
             <li class="inline-block relative">
@@ -62,7 +62,7 @@
                 <div class="flex flex-wrap">
                     <div class="w-6/12">
                         <a class="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
-                            href="/"> Shiloh Apartmennt </a>
+                            href="/">  Heritage Of The <br> Kingdom Church </a>
                     </div>
                     <div class=" w-6/12 flex justify-end">
                         <button type="button"
@@ -84,18 +84,12 @@
             <!-- Heading -->
 
             <ul class="md:flex-col md:min-w-full flex flex-col list-none">
-                <li class="items-center leftside">
-                    <a href="{{ route('home') }}"
-                        class="text-xs uppercase py-3 font-bold block @if($Page == 'Dashboard') text-pink-500 hover:text-pink-600 @else text-blueGray-700 hover:text-blueGray-500 @endif ">
-                        <i class="fas fa-tv mr-2 text-sm opacity-75"></i>
-                        Dashboard
-                    </a>
-                </li>
+               
 
                 <hr class="my-4 md:min-w-full" />
 
                 <li class="items-center leftside">
-                    <a href="{{ route('updateinfo') }}"
+                    <a href="{{ route('attendances.index') }}"
                         class="text-xs uppercase py-3 font-bold block @if($Page == 'costomer') text-pink-500 hover:text-pink-600 @else text-blueGray-700 hover:text-blueGray-500 @endif ">
                         <i class="fas fa-user-circle text-blueGray-300 mr-2 text-sm"></i>
                        Update Your  Details</a>
@@ -104,7 +98,8 @@
                 <hr class="my-2 md:min-w-full" />
 
                 <li class="items-center leftside">
-                    <a href="{{ route('booking') }}"
+                    {{-- <a href="{{ route('book') }}" --}}
+                    <a href=""
                         class="text-xs uppercase py-3 font-bold block  @if($Page == 'booking') text-pink-500 hover:text-pink-600 @else text-blueGray-700 hover:text-blueGray-500 @endif ">
                         <i class="fas fa-key mr-2 text-sm text-blueGray-300"></i>
                         Bookings

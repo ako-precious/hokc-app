@@ -9,10 +9,10 @@
                 <div class="flex flex-wrap">
                     <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
                         <h5 class="text-blueGray-400 uppercase font-bold text-sm">
-                            Rooms
+                           List of Set Attendances
                         </h5>
                         <span class="font-semibold text-xl text-blueGray-700">
-                            {{-- {{ $roomnum }} --}} 700
+                            {{ $setattendancenum }} 
                         </span>
                     </div>
                     <div class="relative w-auto pl-4 flex-initial">
@@ -27,7 +27,7 @@
                         <i class="fas fa-arrow-up"></i> 3.48%
                     </span>
                     <span class="whitespace-nowrap">
-                        Since last month
+                        Since the begining
                     </span>
                 </p>
             </div>
@@ -40,10 +40,10 @@
                 <div class="flex flex-wrap">
                     <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
                         <h5 class="text-blueGray-400 uppercase font-bold text-sm">
-                           Costomers
+                           Number Of Students
                         </h5>
                         <span class="font-semibold text-xl text-blueGray-700">
-                            {{-- {{ $costomernum }}  --}} 500
+                            {{ $studentnum }}  
                         </span>
                     </div>
                     <div class="relative w-auto pl-4 flex-initial">
@@ -57,7 +57,7 @@
                     <span class="text-red-500 mr-2">
                         <i class="fas fa-arrow-down"></i> 3.48%
                     </span>
-                    <span class="whitespace-nowrap"> Since last week </span>
+                    <span class="whitespace-nowrap"> Since  </span>
                 </p>
             </div>
         </div>
@@ -69,10 +69,10 @@
                 <div class="flex flex-wrap">
                     <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
                         <h5 class="text-blueGray-400 uppercase font-bold text-sm">
-                            Room Booked
+                            Total Attendances
                         </h5>
                         <span class="font-semibold text-xl text-blueGray-700">
-                            {{-- {{ $roombookingnumber }} --}} 90
+                            {{ $attendancenum }} 
                         </span>
                     </div>
                     <div class="relative w-auto pl-4 flex-initial">
@@ -98,10 +98,10 @@
                 <div class="flex flex-wrap">
                     <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
                         <h5 class="text-blueGray-400 uppercase font-bold text-xs">
-                            Performance
+                            Attendance Difference
                         </h5>
                         <span class="font-semibold text-xl text-blueGray-700">
-                            49,65%
+                            49
                         </span>
                     </div>
                     <div class="relative w-auto pl-4 flex-initial">
@@ -116,7 +116,7 @@
                         <i class="fas fa-arrow-up"></i> 12%
                     </span>
                     <span class="whitespace-nowrap">
-                        Since last month
+                        Since last attendnace
                     </span>
                 </p>
             </div>

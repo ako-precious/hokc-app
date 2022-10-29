@@ -6,6 +6,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Support\Facades\Auth;
 use App\Models\SetAttendance;
 use Illuminate\Http\Request;
+use App\Models\Attendance;
 use App\Models\User;
 
 class SetAttendanceController extends Controller
@@ -17,24 +18,20 @@ class SetAttendanceController extends Controller
             // $role = Auth::User()->roles;
             // if ($role == 'admin'){
 
+            $setattendancenum = SetAttendance::all()->count();
+            $attendancenum = Attendance::all()->count();
             $set_attendances = SetAttendance::all();
-            $user = User::with('set_attendance') ;
-            $set_attendance = SetAttendance::with('User')->get() ;
-            //   return $set_attendance;
-            // $student = User::find($set_attendances["user_id"]); 
-            // $roomnum = Room::all()->count();
-            // $costomernum = CostomerInfo::all()->count();
-            // $roombookingnumber = RoomBooking::all()->count();
+            $studentnum = User::all()->count();
 
             // return $set_attendances."br". $set_attendances['id'];
             // return $set_attendances ."br". $student;
             return view(
                 'set_attendances.index',
                 [
+                    'setattendancenum' => $setattendancenum,
                     'set_attendances' => $set_attendances,
-                    // 'roomnum'=> $roomnum,
-                    // 'costomernum'=> $costomernum,
-                    // 'roombookingnumber'=> $roombookingnumber
+                    'attendancenum' => $attendancenum,
+                    'studentnum' => $studentnum
                 ]
 
             );
@@ -55,9 +52,10 @@ class SetAttendanceController extends Controller
             // if ($role == 'admin') {
 
 
-                
-                // QrCode::generate('Make me into a QrCode!');
-                return view('set_attendances.create',);
+
+            // return SetAttendance::latest()->first()->id;
+            // QrCode::generate('Make me into a QrCode!');
+            return view('set_attendances.create',);
             // } else {
             //     return redirect('home');
             // }
@@ -75,20 +73,23 @@ class SetAttendanceController extends Controller
     {
         $name = Auth::User()->name;
         $id = Auth::User()->id;
-         $request->validate([
-               
-             'name' => ['required', 'string', 'max:255', 'unique:set_attendances,name'],
-             'starts' => ['required', 'max:255'],
-             'stops' => ['required', 'max:255'],
+        $request->validate([
 
-         ]);
-         $set_attendance =$request->all();
-         $set_attendance['username'] = $name;
-         $set_attendance['user_id'] = $id;
+            'name' => ['required', 'string', 'max:255', 'unique:set_attendances,name'],
+            'starts' => ['required', 'max:255'],
+            'stops' => ['required', 'max:255'],
+
+        ]);
+        $set_attendance = $request->all();
+        $set_attendance['username'] = $name;
+        $set_attendance['user_id'] = $id;
         // return $set_attendance;
-        
+
         SetAttendance::create($set_attendance);
-        return redirect('set_attendances')->withSuccess('Attendance Successfully created!');
+        $id =  SetAttendance::latest()->first()->id;
+        // return SetAttendance::latest()->first();
+        return redirect()->route('qr_code.id', [$id]);
+        // return redirect('set_attendances')->withSuccess('Attendance Successfully created!');
 
     }
 
@@ -123,9 +124,9 @@ class SetAttendanceController extends Controller
     //     if ($role == 'admin'){
 
 
-    //         $costomer= CostomerInfo::find($id);
-    //        // dd($Costomer);
-    //         return view('set_attendance.edit')->with('costomer', $costomer); 
+    //         $attendance= attendanceInfo::find($id);
+    //        // dd($attendance);
+    //         return view('set_attendance.edit')->with('attendance', $attendance); 
 
     //     }else{
     //         return redirect('home');
@@ -142,8 +143,8 @@ class SetAttendanceController extends Controller
      */
     // public function update(Request $request, $id)
     // {
-    //     $Costomer = CostomerInfo::find($id);
-    //     $Costomer->update($request->all());
+    //     $attendance = attendanceInfo::find($id);
+    //     $attendance->update($request->all());
 
     //     $role = Auth::User()->roles;
     //     if ($role == 'admin'){
@@ -165,15 +166,15 @@ class SetAttendanceController extends Controller
     //     // try{
 
     //     // }catch()
-    //     $Costomer = CostomerInfo::find($id);
-    //     $iddestination = $Costomer->meansofid;
-    //     $signdestination = $Costomer->signature;
+    //     $attendance = attendanceInfo::find($id);
+    //     $iddestination = $attendance->meansofid;
+    //     $signdestination = $attendance->signature;
     //     if(Storage::exists($iddestination) ||Storage::exists($signdestination) ){
     //         Storage::delete($iddestination);
     //         Storage::delete($signdestination);
     //     }
 
-    //     $Costomer->delete();
+    //     $attendance->delete();
 
 
     //     return redirect('set_attendance')->withSuccess('Deleted Successfully!');

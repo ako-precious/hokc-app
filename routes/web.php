@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\QRcodeController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\SetAttendanceController;
 
@@ -26,11 +28,13 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    // Route::get('/dashboard', function () { return view('dashboard');})->name('dashboard');
+    
+    Route::get('/dashboard', [DashboardController::class, "index"] )->name('dashboard');
 });
 
 Route::resource('students', UserController::class);
 Route::resource('attendances', AttendanceController::class);
 Route::resource('set_attendances', SetAttendanceController::class);
+Route::get('qrcode/create/{id}', [QRcodeController::class, "create"])->name('qr_code.id');
+Route::post('qrcode/store', [QRcodeController::class, "store"])->name('qr_code.store');

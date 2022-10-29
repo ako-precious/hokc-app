@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Support\Facades\Auth;
+use App\Models\SetAttendance;
 use Illuminate\Http\Request;
+use App\Models\Attendance;
 use App\Models\User;
 
 class UserController extends Controller
@@ -16,16 +18,16 @@ class UserController extends Controller
         // if ($role == 'admin'){
            
             $students = User::all();
-            // $roomnum = Room::all()->count();
-            // $costomernum = CostomerInfo::all()->count();
-            // $roombookingnumber = RoomBooking::all()->count();
+            $studentnum = User::all()->count();
+            $attendancenum = Attendance::all()->count();
+            $setattendancenum = SetAttendance::all()->count();
             
             // return $students;
             return view('students.index',   
                  ['students'=> $students,
-                // 'roomnum'=> $roomnum,
-                // 'costomernum'=> $costomernum,
-                // 'roombookingnumber'=> $roombookingnumber
+                 'studentnum' => $studentnum,
+                 'attendancenum' => $attendancenum,
+                 'setattendancenum' => $setattendancenum,
                 ]
                 
             ); 

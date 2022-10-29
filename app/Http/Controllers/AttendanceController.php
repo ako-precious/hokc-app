@@ -15,27 +15,23 @@ class AttendanceController extends Controller
     public function index()
     {
         if (Auth::User()) {
-            // $role = Auth::User()->roles;
+            // $role = Auth::User()->role;
             // if ($role == 'admin'){
 
+            $setattendancenum = SetAttendance::all()->count();
+            $attendancenum = Attendance::all()->count();
+            $studentnum = User::all()->count();
             $attendances = Attendance::all();
-            // $roomnum = Room::all()->count();
-            // $costomernum = CostomerInfo::all()->count();
-            // $roombookingnumber = RoomBooking::all()->count();
-            // // dd(Attendance::find(1)->Users()->orderBy('name')->get());
-            //  $attendance = Attendance::find(1);
-            //  foreach ($attendance->SetAttendances as $user) {
-            //     dd($user);
-            // }
-            // dd(Attendance::with('Users')->get());
-            // dd($attendances);
+
+            // return $set_attendances."br". $set_attendances['id'];
+            // return $set_attendances ."br". $student;
             return view(
                 'attendances.index',
                 [
                     'attendances' => $attendances,
-                    // 'roomnum'=> $roomnum,
-                    // 'costomernum'=> $costomernum,
-                    // 'roombookingnumber'=> $roombookingnumber
+                    'setattendancenum' => $setattendancenum,
+                    'attendancenum' => $attendancenum,
+                    'studentnum' => $studentnum
                 ]
             );
             // }else{
@@ -102,36 +98,41 @@ class AttendanceController extends Controller
         // return $attendance."<br> Successfully registered ";
 
         $request->validate([
-               
+
             'set_attendance_id' => ['required', 'max:255'],
             'user_id' => ['required', 'max:255'],
             'status' => ['required', 'max:255'],
 
         ]);
-        $attendance =$request->all();
-         if (Attendance::where('set_attendance_id', $attendance['set_attendance_id'])->
-            where('user_id', $attendance['user_id'])->count() > 0) {
-                # code...
-                return redirect('attendances')->withSuccess('Attendance Already Successfully Done!');
-         } else{
+        $attendance = $request->all();
+        if (
+            Attendance::where('set_attendance_id', $attendance['set_attendance_id'])->where('user_id', $attendance['user_id'])->count() > 0
+        ) {
+            # code...
+            return redirect('attendances')->withSuccess('Attendance Already Successfully Done!');
+        } else {
 
-             Attendance::create($attendance);
-             return redirect('attendances')->withSuccess('Attendance Successfully Done!');
-         }
+            Attendance::create($attendance);
+            // $get_set_attendance = SetAttendance::find($attendance['set_attendance_id']);
+            // $attendance_time = $get_set_attendance->created_by;
 
-        //     
+            // if ($get_set_attendance->starts < $attendance_time &&  $get_set_attendance->stops > $attendance_time) {
+            //     $status = 'Present';
+            // } else if ($get_set_attendance->stops < $attendance_time) {
+            //     $status = 'Late';
+            //     # code...
+            // } else {
+            //     $status = 'Try Dey Calm Down Boss time never reach';
+            //     # code...
+            // }
+            // $attendance =  Attendance::latest()->first();
+            // $attendance->status = $status;
+            // $attendance->save();
+            // $attendance->update($attendance['status'] = $status );
 
-        //     CostomerInfo::create($Costomer);
 
-        //     $role = Auth::User()->roles;
-        //     if ($role == 'admin'){
-        //         return redirect('costomers')->withSuccess('Added Successfully!');
-
-        //     }else{
-        //         return redirect('home')->withSuccess('Added Successfully!');
-
-        //     }
-
+            return redirect('attendances')->withSuccess('Attendance Successfully Done!');
+        }
     }
 
     /**
