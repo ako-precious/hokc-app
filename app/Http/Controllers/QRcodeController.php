@@ -75,6 +75,27 @@ class QRcodeController extends Controller
         }
     }
 
+    public function student()
+    {
+          return "hey";
+
+        // if (Auth::User()) {
+        //     $id = Auth::User()->id;
+        //     $attendances = Attendance::where('user_id', $id)->get();
+        //     return view(
+        //         'attendances.student',
+        //         ['attendances' => $attendances
+        //         ]
+        //     );
+        // } else {
+        //     return redirect('dashboard');
+        // }
+    }
+
+    Public function studentattendance(){
+       return 'this is student attendnace';
+        return view('qrcode.status');
+    } 
     Public function status(){
 
         return view('qrcode.status');

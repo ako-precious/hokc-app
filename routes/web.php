@@ -39,4 +39,6 @@ Route::resource('set_attendances', SetAttendanceController::class);
 Route::post('qrcode/store', [QRcodeController::class, "store"])->name('qr_code.store');
 Route::get('qrcode/status', [QRcodeController::class, "status"])->name('qr_code.status');
 Route::get('qrcode/create/{id}', [QRcodeController::class, "create"])->name('qr_code.create.id');
+Route::get('student/attendances', [AttendanceController::class, "student"])->name("student.attendances");
+// Route::get('attendances/student', [AttendanceController::class, "student"])->name('attendances.student');
 Route::get('qrcode/attendance/{id}', [QRcodeController::class, "attendance"])->name('qr_code.attendance');

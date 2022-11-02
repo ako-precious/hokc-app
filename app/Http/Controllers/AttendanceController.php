@@ -16,55 +16,70 @@ class AttendanceController extends Controller
     {
         if (Auth::User()) {
             $role = Auth::User()->role;
-            if ($role == 'admin'){
+            if ($role == 'admin') {
 
-            $setattendancenum = SetAttendance::all()->count();
-            $attendancenum = Attendance::all()->count();
-            $studentnum = User::all()->count();
-            $attendances = Attendance::all();
+                $setattendancenum = SetAttendance::all()->count();
+                $attendancenum = Attendance::all()->count();
+                $studentnum = User::all()->count();
+                $attendances = Attendance::all();
 
-            return view(
-                'attendances.index',
-                [
-                    'attendances' => $attendances,
-                    'setattendancenum' => $setattendancenum,
-                    'attendancenum' => $attendancenum,
-                    'studentnum' => $studentnum
-                ]
-            );
-            }else{
+                return view(
+                    'attendances.index',
+                    [
+                        'attendances' => $attendances,
+                        'setattendancenum' => $setattendancenum,
+                        'attendancenum' => $attendancenum,
+                        'studentnum' => $studentnum
+                    ]
+                );
+            } else {
                 return redirect('dashboard');
             }
-
         } else {
             return redirect('dashboard');
         }
     }
+    public function student()
+    {
+        //   return "hey";
+
+        if (Auth::User()) {
+            $id = Auth::User()->id;
+            $attendances = Attendance::where('user_id', $id)->get();
+            return view(
+                'attendances.student',
+                ['attendances' => $attendances
+                ]
+            );
+        } else {
+            return redirect('dashboard');
+        }
+    }
+ 
 
     public function create()
     {
         if (Auth::User()) {
             $role = Auth::User()->role;
-            if ($role == 'admin'){ 
+            if ($role == 'admin') {
 
-            $set_attendances = SetAttendance::all();
-            $students = User::all();
-            return view(
-                'attendances.create',
-                [
-                    'set_attendances' => $set_attendances,
-                    'students' => $students,
-                ]
-            );
-
-            }else{
+                $set_attendances = SetAttendance::all();
+                $students = User::all();
+                return view(
+                    'attendances.create',
+                    [
+                        'set_attendances' => $set_attendances,
+                        'students' => $students,
+                    ]
+                );
+            } else {
                 return redirect('dashboard');
-
             }
         } else {
             return redirect('dashboard');
         }
     }
+   
     /**
      * Store a newly created resource in storage.
      *
@@ -107,8 +122,6 @@ class AttendanceController extends Controller
 
 
         return Attendance::find($id);
-
-        
     }
     /**
      * Show the form for editing the specified resource.

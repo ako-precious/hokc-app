@@ -1,5 +1,5 @@
 <x-app-layout>
-   
+  {{$Page = ''}}
     <div class="bg-white pb-32 overflow-hidden shadow-xl sm:rounded-lg">
         <div id="root" class="relative bg-blueGray-50">
            
@@ -8,8 +8,6 @@
               
               <!-- Header -->
         
-        
-              
                     <!-- Card stats -->
                     <div class="relative bg-blue-700 md:pt-32 pb-32 pt-12">
                         <div class="px-4 md:px-10 mx-auto w-full">

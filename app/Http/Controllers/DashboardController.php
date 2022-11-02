@@ -68,11 +68,11 @@ class DashboardController extends Controller
             // }
             // ksort($roomsdata);
 
-            $costomerratios = Attendance::selectRaw('count(id) as total_bookings, email as user')
-                ->groupBy('user')
-                ->orderByDesc('user')
-                ->take(8)
-                ->get();
+            // $costomerratios = Attendance::selectRaw('count(id) as total_bookings, email as user')
+            //     ->groupBy('user')
+            //     ->orderByDesc('user')
+            //     ->take(8)
+            //     ->get();
 
 
             // foreach ($costomerratios as $costomerratio) {
@@ -161,4 +161,30 @@ class DashboardController extends Controller
             
         }
     }
+    // public function student()
+    // {
+    //     // if (Auth::User()) {
+    //     //     $id = Auth::User()->id;
+    //         // $role = Auth::User()->role;
+    //         // if ($role == 'admin'){
+
+    //         // $setattendancenum = SetAttendance::all()->count();
+    //         // $attendancenum = Attendance::all()->count();
+    //         // $studentnum = User::all()->count();
+    //         return 'hrytyu';
+    //         // $attendances = Attendance::where('user_id', $id)->get();
+    //         //  return  $attendances ;
+    //         // return view('attendances.student',
+    //         //     [
+    //         //         'attendances' => $attendances,
+    //         //     ]
+    //         // );
+    //         // }else{
+    //         //     return redirect('dashboard');
+    //         // }
+
+    //     // } else {
+    //     //     return redirect('dashboard');
+    //     // }
+    // }
 }

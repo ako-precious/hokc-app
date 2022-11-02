@@ -8,6 +8,7 @@
             <i class="fas fa-bars"></i>
         </button>
         <hr class="my-4 md:min-w-full" />
+        <hr class="my-4 md:min-w-full" />
         <a class="md:block leftside text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-lg uppercase font-bold p-4 px-0"
         href="/">
             Heritage Of The <br> Kingdom Church
@@ -63,6 +64,7 @@
                 <div class="flex flex-wrap">
                     <div class="w-6/12">
                         <hr class="my-4 md:min-w-full" />
+                        <hr class="my-4 md:min-w-full" />
                         <a class="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
                             href="/">Heritage Of The <br> Kingdom Church
                         
@@ -84,7 +86,7 @@
                 </div>
             </form>
             <!-- Divider -->
-            <hr class="my-4 md:min-w-full" />
+           
             <!-- Heading -->
 
             <ul class="md:flex-col md:min-w-full flex flex-col list-none">
@@ -92,14 +94,15 @@
                 <hr class="my-2 md:min-w-full" /> 
 
                 <li class="items-center leftside">
-                    <a href="{{route('attendances.student')}}"
+                    <a href="{{route('student.attendances')}}"
                         class="text-xs uppercase py-3 font-bold block @if($Page == 'attendance') text-blue-700 hover:text-blue-800 @else text-blueGray-700 hover:text-blueGray-500 @endif ">
                         <i class="fas fa-users mr-2 text-sm text-blueGray-300"></i>
                         My Attendance
-                    </a>
+                    </a> 
                 </li> 
 
                  <hr class="my-2 md:min-w-full" />
+                 <hr class="my-4 md:min-w-full" />
 
                 
             </ul>
