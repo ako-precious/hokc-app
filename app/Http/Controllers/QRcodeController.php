@@ -25,7 +25,7 @@ class QRcodeController extends Controller
             $user_id = Auth::User()->id;
             $user_name = Auth::User()->name;
             $user_email = Auth::User()->email;
-            $attendance_time = date("Y-m-d H:i:s ");
+            $attendance_time = date("Y-m-d H:i:s ", strtotime(' + 1 hour'));
             $get_set_attendance = SetAttendance::find($set_attendance);
             $set_attendance_name = $get_set_attendance->name;
             if ($get_set_attendance->starts < $attendance_time &&  $get_set_attendance->stops > $attendance_time) {
@@ -34,7 +34,7 @@ class QRcodeController extends Controller
                 $status = 'Late';
                 # code...
             } else {
-                $status = 'Present';
+                $status = 'Try Dey Calm Down Boss time never reach';
                 # code...
             }
             $attendance['set_attendance_name'] = $set_attendance_name;
