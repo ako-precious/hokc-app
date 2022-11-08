@@ -107,9 +107,7 @@ class DashboardController extends Controller
 
             $email = Auth::user()->email;
 
-            // if (CostomerInfo::where('email', '=', $email)->first()) {
-            //     $costomernum = CostomerInfo::all()->count();
-            //     $costomers = CostomerInfo::where('email', '=', $email)->get();
+            
 
             //     $bookingratios = RoomBooking::where('email', '=', $email)
             //         ->selectRaw('count(email) as total_bookings, month(created_at) as month')
